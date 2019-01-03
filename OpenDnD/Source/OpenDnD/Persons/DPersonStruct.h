@@ -2,19 +2,19 @@
 
 #pragma once
 
-#include "DResourceStruct.generated.h"
+#include "DPersonStruct.generated.h"
 
 USTRUCT(BlueprintType)
-struct FDResourceStruct
+struct FDPersonStruct
 {
     GENERATED_USTRUCT_BODY()
 public:
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resource")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Person")
     FString name;
     
-    UPROPERTY(BlueprintReadOnly, Category = "Resource")
+    UPROPERTY(BlueprintReadOnly, Category = "Person")
     FString uuid;
     
-    FDResourceStruct()
+    FDPersonStruct()
     {};
 };

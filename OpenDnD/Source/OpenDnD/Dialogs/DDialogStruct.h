@@ -2,19 +2,19 @@
 
 #pragma once
 
-#include "DResourceStruct.generated.h"
+#include "DDialogStruct.generated.h"
 
 USTRUCT(BlueprintType)
-struct FDResourceStruct
+struct FDDialogStruct
 {
     GENERATED_USTRUCT_BODY()
 public:
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resource")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialog")
     FString name;
     
-    UPROPERTY(BlueprintReadOnly, Category = "Resource")
+    UPROPERTY(BlueprintReadOnly, Category = "Dialog")
     FString uuid;
     
-    FDResourceStruct()
+    FDDialogStruct()
     {};
 };

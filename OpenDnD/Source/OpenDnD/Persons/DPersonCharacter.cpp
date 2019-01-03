@@ -14,7 +14,7 @@ ADPersonCharacter::ADPersonCharacter()
 void ADPersonCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+    LoadData();
 }
 
 // Called every frame
@@ -31,3 +31,8 @@ void ADPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 }
 
+// Called to load the data
+void ADPersonCharacter::LoadData()
+{
+    DData::LoadPerson(FileName, &Person);
+}

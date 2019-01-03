@@ -3,3 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
+// Error
+DECLARE_LOG_CATEGORY_EXTERN(DErrorLog, Error, All);
+
+// Warning
+DECLARE_LOG_CATEGORY_EXTERN(DWarningLog, Warning, All);
+
+// Info
+DECLARE_LOG_CATEGORY_EXTERN(DLog, Log, All);

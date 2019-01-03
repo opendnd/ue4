@@ -2,19 +2,19 @@
 
 #pragma once
 
-#include "DResourceStruct.generated.h"
+#include "DItemStruct.generated.h"
 
 USTRUCT(BlueprintType)
-struct FDResourceStruct
+struct FDItemStruct
 {
     GENERATED_USTRUCT_BODY()
 public:
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resource")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
     FString name;
     
-    UPROPERTY(BlueprintReadOnly, Category = "Resource")
+    UPROPERTY(BlueprintReadOnly, Category = "Item")
     FString uuid;
     
-    FDResourceStruct()
+    FDItemStruct()
     {};
 };

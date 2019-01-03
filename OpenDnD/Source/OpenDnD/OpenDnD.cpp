@@ -5,3 +5,11 @@
 
 IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, OpenDnD, "OpenDnD" );
  
+// Error Log
+DEFINE_LOG_CATEGORY(DErrorLog);
+
+// Warning Log
+DEFINE_LOG_CATEGORY(DWarningLog);
+
+// Info Log
+DEFINE_LOG_CATEGORY(DLog);

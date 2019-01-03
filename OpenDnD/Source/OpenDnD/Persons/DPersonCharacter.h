@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Core/DData.h"
+#include "DPersonStruct.h"
+
 #include "DPersonCharacter.generated.h"
 
 UCLASS()
@@ -19,7 +22,19 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
+    // Property for the file name
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Person")
+    FName FileName;
+    
+    // Property for the data
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Person")
+    FDPersonStruct Person;
+    
+    // Load the data from the file name
+    UFUNCTION(BlueprintCallable, Category = "Person")
+    void LoadData();
+    
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
