@@ -36,3 +36,16 @@ void ADPersonCharacter::LoadData()
 {
     DData::LoadPerson(FileName, &Person);
 }
+
+// Get current dialog
+FDDialogStruct ADPersonCharacter::GetCurrentDialog()
+{
+    FDDialogStruct Dialog;
+    if (Person.dialogs.Num() > 0)
+    {
+        FDLinkDialogStruct Link = Person.dialogs[Person.currentDialog];
+        DData::LoadDialog(Link.uuid, &Dialog);
+    }
+    
+    return Dialog;
+}

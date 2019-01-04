@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Persons/DPersonCharacter.h"
+#include "Dialogs/DDialogStruct.h"
+
 #include "DPlayableCharacter.generated.h"
 
 /**
@@ -71,4 +73,33 @@ public:
     FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
     /** Returns FollowCamera subobject **/
     FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+    
+    // Properties for the dialog
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
+    FDDialogStruct Dialog;
+    
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
+    FDResponseStruct DialogResponse;
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
+    FDChoiceStruct DialogChoice1;
+    
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
+    FDChoiceStruct DialogChoice2;
+    
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
+    FDChoiceStruct DialogChoice3;
+    
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
+    FDChoiceStruct DialogChoice4;
+    
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
+    FDChoiceStruct DialogChoice5;
+    
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
+    FDChoiceStruct DialogChoice6;
+    
+    // Set current dialog
+    UFUNCTION(BlueprintCallable, Category = "Dialog")
+    void SetDialogPrompt();
 };

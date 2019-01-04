@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Core/DData.h"
+#include "DItemStruct.h"
+
 #include "DItem.generated.h"
 
 UCLASS()
@@ -23,4 +26,19 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+    // Property for the file name
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
+    FName FileName;
+    
+    // Property for the data
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item")
+    FDItemStruct Item;
+    
+    // Load the data from the file name
+    UFUNCTION(BlueprintCallable, Category = "Item")
+    void LoadData();
+    
+    // Get current dialog
+    UFUNCTION(BlueprintCallable, Category = "Item")
+    FDDialogStruct GetCurrentDialog();
 };

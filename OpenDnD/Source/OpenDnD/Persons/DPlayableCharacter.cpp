@@ -132,3 +132,73 @@ void ADPlayableCharacter::MoveRight(float Value)
         AddMovementInput(Direction, Value);
     }
 }
+
+//////////////////////////////////////////////////////////////////////////
+// Dialog
+void ADPlayableCharacter::SetDialogPrompt()
+{
+    if (Dialog.responses.Num() > Dialog.currentResponse)
+    {
+        FDResponseStruct Response = Dialog.responses[Dialog.currentResponse];
+        DialogResponse = Response;
+        
+        if (Dialog.prompts.Num() > Response.prompt)
+        {
+            FDPromptStruct Prompt = Dialog.prompts[Response.prompt];
+            
+            if (Prompt.choices.Num() > 0)
+            {
+                DialogChoice1 = Prompt.choices[0];
+            }
+            else
+            {
+                DialogChoice1 = FDChoiceStruct();
+            }
+            
+            if (Prompt.choices.Num() > 1)
+            {
+                DialogChoice2 = Prompt.choices[1];
+            }
+            else
+            {
+                DialogChoice2 = FDChoiceStruct();
+            }
+            
+            if (Prompt.choices.Num() > 2)
+            {
+                DialogChoice3 = Prompt.choices[2];
+            }
+            else
+            {
+                DialogChoice3 = FDChoiceStruct();
+            }
+            
+            if (Prompt.choices.Num() > 3)
+            {
+                DialogChoice4 = Prompt.choices[3];
+            }
+            else
+            {
+                DialogChoice4 = FDChoiceStruct();
+            }
+            
+            if (Prompt.choices.Num() > 4)
+            {
+                DialogChoice5 = Prompt.choices[4];
+            }
+            else
+            {
+                DialogChoice5 = FDChoiceStruct();
+            }
+            
+            if (Prompt.choices.Num() > 5)
+            {
+                DialogChoice6 = Prompt.choices[5];
+            }
+            else
+            {
+                DialogChoice6 = FDChoiceStruct();
+            }
+        }
+    }
+}

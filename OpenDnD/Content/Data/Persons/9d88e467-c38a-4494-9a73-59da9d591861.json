@@ -1,0 +1,14 @@
+{
+  "uuid": "9d88e467-c38a-4494-9a73-59da9d591861",
+  "name": "Friendly Ally",
+  "currentDialog": 0,
+  "dialogs": [
+    {
+      "uuid": "ffc8650a-d54e-4bbf-9a8f-08f1371c01d7",
+      "name": "Welcome Ally Dialog"
+    },{
+      "uuid": "b76e3527-1b27-43cc-89d8-ed64336875b5",
+      "name": "Test Quest Dialog"
+    }
+  ]
+}

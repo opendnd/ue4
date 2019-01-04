@@ -1,0 +1,20 @@
+{
+  "uuid": "b8bbd918-69c5-4c6c-adf8-6c2a57b9404d",
+  "name": "Test Enemy Dialog",
+  "currentResponse": 0,
+  "responses": [
+    {
+      "text": "What do you want?",
+      "prompt": 0
+    }
+  ],
+  "prompts": [
+    {
+      "choices": [
+        {
+          "text": "[ Leave ]"
+        }
+      ]
+    }
+  ]
+}

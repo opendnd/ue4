@@ -14,7 +14,7 @@ ADItem::ADItem()
 void ADItem::BeginPlay()
 {
 	Super::BeginPlay();
-	
+    LoadData();
 }
 
 // Called every frame
@@ -24,3 +24,25 @@ void ADItem::Tick(float DeltaTime)
 
 }
 
+// Called to load the data
+void ADItem::LoadData()
+{
+    DData::LoadItem(FileName, &Item);
+}
+
+// Get current dialog
+FDDialogStruct ADItem::GetCurrentDialog()
+{
+    FDDialogStruct Dialog;
+    if (Item.dialogs.Num() > 0)
+    {
+        FDLinkDialogStruct Link = Item.dialogs[Item.currentDialog];
+        DData::LoadDialog(Link.uuid, &Dialog);
+    }
+    else
+    {
+        UE_LOG(DErrorLog, Error, TEXT("Dialogs not enough"));
+    }
+    
+    return Dialog;
+}

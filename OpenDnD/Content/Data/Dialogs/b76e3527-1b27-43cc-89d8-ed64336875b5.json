@@ -1,0 +1,37 @@
+{
+  "uuid": "b76e3527-1b27-43cc-89d8-ed64336875b5",
+  "name": "Test Quest Dialog",
+  "currentResponse": 0,
+  "responses": [
+    {
+      "text": "Did you complete your quest?",
+      "prompt": 0
+    },{
+      "text": "Good job",
+      "prompt": 1
+    },{
+      "text": "Well go on then!",
+      "prompt": 1
+    }
+  ],
+  "prompts": [
+    {
+      "choices": [
+        {
+          "text": "Yes",
+          "triggers": [
+            "CheckQuest"
+          ]
+        },{
+          "text": "No"
+        }
+      ]
+    },{
+      "choices": [
+        {
+          "text": "[ Leave ]"
+        }
+      ]
+    }
+  ]
+}

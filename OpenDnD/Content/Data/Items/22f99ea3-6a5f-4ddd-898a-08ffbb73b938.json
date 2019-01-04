@@ -1,0 +1,11 @@
+{
+  "uuid": "22f99ea3-6a5f-4ddd-898a-08ffbb73b938",
+  "name": "Chest",
+  "currentDialog": 0,
+  "dialogs": [
+    {
+      "uuid": "d8e83f1c-dac6-4c13-890a-0209fad22f8a",
+      "name": "Item Dialog"
+    }
+  ]
+}

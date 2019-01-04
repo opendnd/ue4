@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 #include "Core/DData.h"
 #include "DPersonStruct.h"
+#include "Dialogs/DDialogStruct.h"
 
 #include "DPersonCharacter.generated.h"
 
@@ -23,6 +24,12 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
+    // Called every frame
+    virtual void Tick(float DeltaTime) override;
+    
+    // Called to bind functionality to input
+    virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
     // Property for the file name
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Person")
     FName FileName;
@@ -35,10 +42,7 @@ public:
     UFUNCTION(BlueprintCallable, Category = "Person")
     void LoadData();
     
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
+    // Get current dialog
+    UFUNCTION(BlueprintCallable, Category = "Person")
+    FDDialogStruct GetCurrentDialog();
 };

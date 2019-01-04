@@ -5,16 +5,37 @@
 #include "DResourceStruct.generated.h"
 
 USTRUCT(BlueprintType)
+struct FDLinkResourceStruct
+{
+    GENERATED_USTRUCT_BODY()
+public:
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resource")
+    FText name;
+    
+    UPROPERTY(BlueprintReadOnly, Category = "Resource")
+    FName uuid;
+    
+    FDLinkResourceStruct()
+    {
+        name = FText();
+        uuid = TEXT("");
+    }
+};
+
+USTRUCT(BlueprintType)
 struct FDResourceStruct
 {
     GENERATED_USTRUCT_BODY()
 public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resource")
-    FString name;
+    FText name;
     
     UPROPERTY(BlueprintReadOnly, Category = "Resource")
-    FString uuid;
+    FName uuid;
     
     FDResourceStruct()
-    {};
+    {
+        name = FText();
+        uuid = TEXT("");
+    }
 };

@@ -1,0 +1,47 @@
+{
+  "uuid": "ffc8650a-d54e-4bbf-9a8f-08f1371c01d7",
+  "name": "Welcome Ally Dialog",
+  "currentResponse": 0,
+  "responses": [
+    {
+      "text": "Hi, how are you?",
+      "prompt": 0
+    },{
+      "text": "In fact I do! Please go to the chest and retrieve the items!",
+      "prompt": 1
+    },{
+      "text": "Rude...",
+      "prompt": 2
+    }
+  ],
+  "prompts": [
+    {
+      "choices": [
+        {
+          "text": "I'm doing well, do you have a quest for me?",
+          "response": 1
+        },{
+          "text": "Screw you!",
+          "response": 2
+        },{
+          "text": "[ Leave ]"
+        }
+      ]
+    },{
+      "choices": [
+        {
+          "text": "Got it and thank you!",
+          "triggers": [
+            "AddQuest"
+          ]
+        }
+      ]
+    },{
+      "choices": [
+        {
+          "text": "[ Leave ]"
+        }
+      ]
+    }
+  ]
+}
