@@ -8,6 +8,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "DPlayerController.h"
 
 //////////////////////////////////////////////////////////////////////////
 // ADPlayableCharacter
@@ -200,5 +201,33 @@ void ADPlayableCharacter::SetDialogPrompt()
                 DialogChoice6 = FDChoiceStruct();
             }
         }
+    }
+}
+
+void ADPlayableCharacter::StartDialog()
+{
+    ADPlayerController* PlayerController = Cast<ADPlayerController>(Controller);
+    
+    if (PlayerController == NULL)
+    {
+        UE_LOG(DErrorLog, Error, TEXT("Controller null!"));
+    }
+    else
+    {
+        PlayerController->ShowMouse();
+    }
+}
+
+void ADPlayableCharacter::EndDialog()
+{
+    ADPlayerController* PlayerController = Cast<ADPlayerController>(Controller);
+
+    if (PlayerController == NULL)
+    {
+        UE_LOG(DErrorLog, Error, TEXT("Controller not found!"));
+    }
+    else
+    {
+        PlayerController->HideMouse();
     }
 }

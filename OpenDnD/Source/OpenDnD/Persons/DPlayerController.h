@@ -13,5 +13,7 @@ UCLASS()
 class OPENDND_API ADPlayerController : public APlayerController
 {
 	GENERATED_BODY()
-	
+public:
+    void ShowMouse();
+    void HideMouse();
 };

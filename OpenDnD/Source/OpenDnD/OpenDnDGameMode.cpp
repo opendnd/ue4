@@ -2,6 +2,7 @@
 
 #include "OpenDnDGameMode.h"
 #include "Persons/DPlayableCharacter.h"
+#include "Persons/DPlayerController.h"
 #include "UObject/ConstructorHelpers.h"
 
 AOpenDnDGameMode::AOpenDnDGameMode()
@@ -12,4 +13,11 @@ AOpenDnDGameMode::AOpenDnDGameMode()
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
+    
+    // set default player controller
+    static ConstructorHelpers::FClassFinder<APlayerController> PlayerControllerBPClass(TEXT("/Game/Blueprints/Persons/BP_PlayerController"));
+    if (PlayerControllerBPClass.Class != NULL)
+    {
+        PlayerControllerClass = PlayerControllerBPClass.Class;
+    }
 }

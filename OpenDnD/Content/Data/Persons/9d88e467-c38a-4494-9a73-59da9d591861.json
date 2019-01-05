@@ -9,6 +9,9 @@
     },{
       "uuid": "b76e3527-1b27-43cc-89d8-ed64336875b5",
       "name": "Test Quest Dialog"
+    },{
+      "uuid": "be4bd681-026a-4133-9e77-d294ef3c6c67",
+      "name": "Quest Completed Dialog"
     }
   ]
 }

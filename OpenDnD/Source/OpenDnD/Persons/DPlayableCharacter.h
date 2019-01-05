@@ -76,6 +76,9 @@ public:
     
     // Properties for the dialog
     UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
+    AActor* InteractingActor;
+    
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
     FDDialogStruct Dialog;
     
     UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
@@ -102,4 +105,12 @@ public:
     // Set current dialog
     UFUNCTION(BlueprintCallable, Category = "Dialog")
     void SetDialogPrompt();
+    
+    // Start dialog
+    UFUNCTION(BlueprintCallable, Category = "Dialog")
+    void StartDialog();
+    
+    // End dialog
+    UFUNCTION(BlueprintCallable, Category = "Dialog")
+    void EndDialog();
 };
