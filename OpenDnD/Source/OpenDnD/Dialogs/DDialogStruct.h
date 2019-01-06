@@ -13,7 +13,7 @@ public:
     FText text;
     
     UPROPERTY(BlueprintReadOnly, Category = "Dialog")
-    uint8 prompt;
+    int32 prompt;
     
     UPROPERTY(BlueprintReadOnly, Category = "Dialog")
     TArray<FName> triggers;
@@ -21,7 +21,7 @@ public:
     FDResponseStruct()
     {
         text = FText();
-        prompt = 0;
+        prompt = -1;
         TArray<FName> triggers;
     }
 };
@@ -35,7 +35,7 @@ public:
     FText text;
     
     UPROPERTY(BlueprintReadOnly, Category = "Dialog")
-    uint8 response;
+    int32 response;
     
     UPROPERTY(BlueprintReadOnly, Category = "Dialog")
     TArray<FName> triggers;
@@ -43,7 +43,7 @@ public:
     FDChoiceStruct()
     {
         text = FText();
-        response = 0;
+        response = -1;
         TArray<FName> triggers;
     }
 };
@@ -67,7 +67,7 @@ struct FDLinkDialogStruct
 {
     GENERATED_USTRUCT_BODY()
 public:
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialog")
+    UPROPERTY(BlueprintReadWrite, Category = "Dialog")
     FText name;
     
     UPROPERTY(BlueprintReadOnly, Category = "Dialog")
@@ -85,14 +85,14 @@ struct FDDialogStruct
 {
     GENERATED_USTRUCT_BODY()
 public:
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialog")
+    UPROPERTY(BlueprintReadWrite, Category = "Dialog")
     FText name;
     
     UPROPERTY(BlueprintReadOnly, Category = "Dialog")
     FName uuid;
     
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialog")
-    uint8 currentResponse;
+    UPROPERTY(BlueprintReadWrite, Category = "Dialog")
+    int32 currentResponse;
     
     UPROPERTY(BlueprintReadOnly, Category = "Dialog")
     TArray<FDResponseStruct> responses;

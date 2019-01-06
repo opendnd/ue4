@@ -9,6 +9,9 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "DPlayerController.h"
+#include <EngineGlobals.h>
+#include <Runtime/Engine/Classes/Engine/Engine.h>
+#include <Runtime/Core/Public/Misc/OutputDeviceDebug.h>
 
 //////////////////////////////////////////////////////////////////////////
 // ADPlayableCharacter
@@ -206,13 +209,11 @@ void ADPlayableCharacter::SetDialogPrompt()
 
 void ADPlayableCharacter::StartDialog()
 {
+    OnDialogStart.Broadcast();
+    
     ADPlayerController* PlayerController = Cast<ADPlayerController>(Controller);
     
-    if (PlayerController == NULL)
-    {
-        UE_LOG(DErrorLog, Error, TEXT("Controller null!"));
-    }
-    else
+    if (PlayerController != NULL)
     {
         PlayerController->ShowMouse();
     }
@@ -220,14 +221,73 @@ void ADPlayableCharacter::StartDialog()
 
 void ADPlayableCharacter::EndDialog()
 {
+    OnDialogEnd.Broadcast();
+
     ADPlayerController* PlayerController = Cast<ADPlayerController>(Controller);
 
-    if (PlayerController == NULL)
-    {
-        UE_LOG(DErrorLog, Error, TEXT("Controller not found!"));
-    }
-    else
+    if (PlayerController != NULL)
     {
         PlayerController->HideMouse();
     }
+}
+
+void ADPlayableCharacter::NextDialog(FName ChoiceName)
+{
+    if (ChoiceName == TEXT("1"))
+    {
+        NextDialogWithChoice(DialogChoice1);
+    }
+    else if (ChoiceName == TEXT("2"))
+    {
+        NextDialogWithChoice(DialogChoice2);
+    }
+    else if (ChoiceName == TEXT("3"))
+    {
+        NextDialogWithChoice(DialogChoice3);
+    }
+    else if (ChoiceName == TEXT("4"))
+    {
+        NextDialogWithChoice(DialogChoice4);
+    }
+    else if (ChoiceName == TEXT("5"))
+    {
+        NextDialogWithChoice(DialogChoice5);
+    }
+    else if (ChoiceName == TEXT("6"))
+    {
+        NextDialogWithChoice(DialogChoice6);
+    }
+}
+
+void ADPlayableCharacter::NextDialogWithChoice(FDChoiceStruct Choice)
+{
+    // First check for triggers we can execute
+    if (Choice.triggers.Num() > 0)
+    {
+        for (auto& Trigger : Choice.triggers)
+        {
+            UE_LOG(DLog, Log, TEXT("Calling trigger %s"), *Trigger.ToString());
+            
+            FOutputDeviceDebug debug;
+            InteractingActor->CallFunctionByNameWithArguments(*Trigger.ToString(), debug, this, true);
+        }
+    }
+    // Next check for another response
+    else if (Choice.response > -1)
+    {
+        Dialog.currentResponse = Choice.response;
+        SetDialogPrompt();
+    }
+    // Otherwise end the dialog
+    else
+    {
+        EndDialog();
+    }
+}
+
+// Goto response
+void ADPlayableCharacter::GoToResponse(int32 currentResponse)
+{
+    Dialog.currentResponse = currentResponse;
+    SetDialogPrompt();
 }

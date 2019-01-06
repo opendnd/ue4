@@ -41,8 +41,15 @@ FDDialogStruct ADItem::GetCurrentDialog()
     }
     else
     {
-        UE_LOG(DErrorLog, Error, TEXT("Dialogs not enough"));
+        UE_LOG(DErrorLog, Error, TEXT("No dialogs found"));
     }
     
     return Dialog;
+}
+
+// Increment the dialog
+void ADItem::IncrementDialog()
+{
+    // TODO: make sure you can't go passed the total available
+    Item.currentDialog += 1;
 }

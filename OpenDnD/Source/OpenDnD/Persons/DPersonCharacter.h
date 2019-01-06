@@ -35,7 +35,7 @@ public:
     FName FileName;
     
     // Property for the data
-    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Person")
+    UPROPERTY(BlueprintReadWrite, Category = "Person")
     FDPersonStruct Person;
     
     // Load the data from the file name
@@ -45,4 +45,12 @@ public:
     // Get current dialog
     UFUNCTION(BlueprintCallable, Category = "Person")
     FDDialogStruct GetCurrentDialog();
+    
+    // Increment the dialog
+    UFUNCTION(BlueprintCallable, Category = "Person")
+    void IncrementDialog();
+    
+    // Goto response and dialog
+    UFUNCTION(BlueprintCallable, Category = "Person")
+    void GoToDialog(int32 currentDialog);
 };

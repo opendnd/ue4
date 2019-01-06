@@ -1,6 +1,7 @@
 {
   "name": "Mean Enemy",
   "uuid": "91c7e51e-ac49-472c-8bf8-0e3ed8fe5f3c",
+  "items": [],
   "currentDialog": 0,
   "dialogs": [
     {

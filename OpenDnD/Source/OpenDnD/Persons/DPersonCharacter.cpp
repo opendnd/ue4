@@ -46,6 +46,24 @@ FDDialogStruct ADPersonCharacter::GetCurrentDialog()
         FDLinkDialogStruct Link = Person.dialogs[Person.currentDialog];
         DData::LoadDialog(Link.uuid, &Dialog);
     }
+    else
+    {
+        UE_LOG(DErrorLog, Error, TEXT("No dialogs found!"));
+    }
     
     return Dialog;
+}
+
+// Increment the dialog
+UFUNCTION(BlueprintCallable, Category = "Person")
+void ADPersonCharacter::IncrementDialog()
+{
+    // TODO: make sure you can't go passed the total available
+    Person.currentDialog += 1;
+}
+
+// Goto dialog
+void ADPersonCharacter::GoToDialog(int32 currentDialog)
+{
+    Person.currentDialog = currentDialog;
 }

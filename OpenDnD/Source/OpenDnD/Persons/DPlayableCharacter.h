@@ -8,6 +8,10 @@
 
 #include "DPlayableCharacter.generated.h"
 
+// Add delegates
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FDialogStartDelegate);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FDialogEndDelegate);
+
 /**
  * 
  */
@@ -75,31 +79,37 @@ public:
     FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
     
     // Properties for the dialog
-    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
+    UPROPERTY(BlueprintAssignable, Category = "Dialog")
+    FDialogStartDelegate OnDialogStart;
+    
+    UPROPERTY(BlueprintAssignable, Category = "Dialog")
+    FDialogEndDelegate OnDialogEnd;
+    
+    UPROPERTY(BlueprintReadWrite, Category = "Dialog")
     AActor* InteractingActor;
     
-    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
+    UPROPERTY(BlueprintReadWrite, Category = "Dialog")
     FDDialogStruct Dialog;
     
-    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
+    UPROPERTY(BlueprintReadWrite, Category = "Dialog")
     FDResponseStruct DialogResponse;
 
-    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
+    UPROPERTY(BlueprintReadWrite, Category = "Dialog")
     FDChoiceStruct DialogChoice1;
     
-    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
+    UPROPERTY(BlueprintReadWrite, Category = "Dialog")
     FDChoiceStruct DialogChoice2;
     
-    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
+    UPROPERTY(BlueprintReadWrite, Category = "Dialog")
     FDChoiceStruct DialogChoice3;
     
-    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
+    UPROPERTY(BlueprintReadWrite, Category = "Dialog")
     FDChoiceStruct DialogChoice4;
     
-    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
+    UPROPERTY(BlueprintReadWrite, Category = "Dialog")
     FDChoiceStruct DialogChoice5;
     
-    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Dialog")
+    UPROPERTY(BlueprintReadWrite, Category = "Dialog")
     FDChoiceStruct DialogChoice6;
     
     // Set current dialog
@@ -113,4 +123,13 @@ public:
     // End dialog
     UFUNCTION(BlueprintCallable, Category = "Dialog")
     void EndDialog();
+    
+    // Next dialog
+    UFUNCTION(BlueprintCallable, Category = "Dialog")
+    void NextDialog(FName ChoiceName);
+    void NextDialogWithChoice(FDChoiceStruct Choice);
+    
+    // Goto response
+    UFUNCTION(BlueprintCallable, Category = "Dialog")
+    void GoToResponse(int32 currentResponse);
 };

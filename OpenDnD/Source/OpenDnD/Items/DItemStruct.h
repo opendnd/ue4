@@ -11,7 +11,7 @@ struct FDLinkItemStruct
 {
     GENERATED_USTRUCT_BODY()
 public:
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
+    UPROPERTY(BlueprintReadWrite, Category = "Item")
     FText name;
     
     UPROPERTY(BlueprintReadOnly, Category = "Item")
@@ -29,16 +29,19 @@ struct FDItemStruct
 {
     GENERATED_USTRUCT_BODY()
 public:
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
+    UPROPERTY(BlueprintReadWrite, Category = "Item")
     FText name;
     
     UPROPERTY(BlueprintReadOnly, Category = "Item")
     FName uuid;
     
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
-    uint8 currentDialog;
+    UPROPERTY(BlueprintReadWrite, Category = "Person")
+    TArray<FDLinkItemStruct> items;
     
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
+    UPROPERTY(BlueprintReadWrite, Category = "Item")
+    int32 currentDialog;
+    
+    UPROPERTY(BlueprintReadWrite, Category = "Item")
     TArray<FDLinkDialogStruct> dialogs;
     
     FDItemStruct()

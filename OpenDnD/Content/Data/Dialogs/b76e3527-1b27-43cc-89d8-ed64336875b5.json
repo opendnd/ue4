@@ -10,6 +10,9 @@
       "text": "Good job",
       "prompt": 1
     },{
+      "text": "Lies!",
+      "prompt": 1
+    },{
       "text": "Well go on then!",
       "prompt": 1
     }
@@ -23,7 +26,8 @@
             "CheckQuest"
           ]
         },{
-          "text": "No"
+          "text": "No",
+          "response": 3
         }
       ]
     },{

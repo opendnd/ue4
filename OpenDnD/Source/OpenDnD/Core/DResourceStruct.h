@@ -9,7 +9,7 @@ struct FDLinkResourceStruct
 {
     GENERATED_USTRUCT_BODY()
 public:
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resource")
+    UPROPERTY(BlueprintReadWrite, Category = "Resource")
     FText name;
     
     UPROPERTY(BlueprintReadOnly, Category = "Resource")
@@ -27,7 +27,7 @@ struct FDResourceStruct
 {
     GENERATED_USTRUCT_BODY()
 public:
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resource")
+    UPROPERTY(BlueprintReadWrite, Category = "Resource")
     FText name;
     
     UPROPERTY(BlueprintReadOnly, Category = "Resource")

@@ -31,7 +31,7 @@ public:
     FName FileName;
     
     // Property for the data
-    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item")
+    UPROPERTY(BlueprintReadWrite, Category = "Item")
     FDItemStruct Item;
     
     // Load the data from the file name
@@ -41,4 +41,8 @@ public:
     // Get current dialog
     UFUNCTION(BlueprintCallable, Category = "Item")
     FDDialogStruct GetCurrentDialog();
+    
+    // Increment the dialog
+    UFUNCTION(BlueprintCallable, Category = "Item")
+    void IncrementDialog();
 };

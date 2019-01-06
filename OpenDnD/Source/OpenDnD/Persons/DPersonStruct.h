@@ -3,6 +3,7 @@
 #pragma once
 
 #include "Dialogs/DDialogStruct.h"
+#include "Items/DItemStruct.h"
 
 #include "DPersonStruct.generated.h"
 
@@ -30,16 +31,19 @@ struct FDPersonStruct
 {
     GENERATED_USTRUCT_BODY()
 public:
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Person")
+    UPROPERTY(BlueprintReadWrite, Category = "Person")
     FText name;
     
     UPROPERTY(BlueprintReadOnly, Category = "Person")
     FName uuid;
     
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Person")
-    uint8 currentDialog;
+    UPROPERTY(BlueprintReadWrite, Category = "Person")
+    TArray<FDLinkItemStruct> items;
     
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Person")
+    UPROPERTY(BlueprintReadWrite, Category = "Person")
+    int32 currentDialog;
+    
+    UPROPERTY(BlueprintReadWrite, Category = "Person")
     TArray<FDLinkDialogStruct> dialogs;
     
     FDPersonStruct()

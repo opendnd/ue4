@@ -1,6 +1,7 @@
 {
   "uuid": "9d88e467-c38a-4494-9a73-59da9d591861",
   "name": "Friendly Ally",
+  "items": [],
   "currentDialog": 0,
   "dialogs": [
     {
