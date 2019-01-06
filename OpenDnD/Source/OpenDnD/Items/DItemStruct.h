@@ -35,7 +35,10 @@ public:
     UPROPERTY(BlueprintReadOnly, Category = "Item")
     FName uuid;
     
-    UPROPERTY(BlueprintReadWrite, Category = "Person")
+    UPROPERTY(BlueprintReadOnly, Category = "Item")
+    int32 weight;
+    
+    UPROPERTY(BlueprintReadWrite, Category = "Item")
     TArray<FDLinkItemStruct> items;
     
     UPROPERTY(BlueprintReadWrite, Category = "Item")

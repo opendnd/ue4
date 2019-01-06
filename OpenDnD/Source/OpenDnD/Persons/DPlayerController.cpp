@@ -5,17 +5,17 @@
 void ADPlayerController::ShowMouse()
 {
     SetIgnoreMoveInput(true);
+    SetIgnoreLookInput(true);
     bShowMouseCursor = true;
     bEnableClickEvents = true;
     bEnableMouseOverEvents = true;
-    SetInputMode(FInputModeUIOnly());
 }
 
 void ADPlayerController::HideMouse()
 {
     SetIgnoreMoveInput(false);
+    SetIgnoreLookInput(false);
     bShowMouseCursor = false;
     bEnableClickEvents = false;
-    bEnableMouseOverEvents = false;
-    SetInputMode(FInputModeGameOnly());
+    bEnableMouseOverEvents = false;    
 }

@@ -26,18 +26,14 @@ public:
     static FString BuildPath(FName FileName, FString Directory);
     
     // Load a generic resource
-    UFUNCTION()
     static void LoadResource(FName FileName, FDResourceStruct* Resource);
     
     // Load a dialog
-    UFUNCTION()
     static void LoadDialog(FName FileName, FDDialogStruct* Dialog);
     
     // Load an item
-    UFUNCTION()
     static void LoadItem(FName FileName, FDItemStruct* Item);
     
     // Load a person
-    UFUNCTION()
     static void LoadPerson(FName FileName, FDPersonStruct* Person);
 };

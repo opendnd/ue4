@@ -1,6 +1,7 @@
 {
   "uuid": "22f99ea3-6a5f-4ddd-898a-08ffbb73b938",
   "name": "Chest",
+  "weight": 50,
   "items": [
     {
       "uuid": "462fd5eb-9bf1-4fae-ad02-fb3b8b50f878",

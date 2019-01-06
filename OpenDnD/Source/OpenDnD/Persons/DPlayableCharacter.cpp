@@ -138,6 +138,24 @@ void ADPlayableCharacter::MoveRight(float Value)
 }
 
 //////////////////////////////////////////////////////////////////////////
+// Items
+void ADPlayableCharacter::AddItem(FDLinkItemStruct Link)
+{
+    Person.items.Add(Link);
+}
+
+void ADPlayableCharacter::AddItems(TArray<FDLinkItemStruct> Items)
+{
+    if (Items.Num() > 0)
+    {
+        for (auto& Link : Items)
+        {
+            AddItem(Link);
+        }
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////
 // Dialog
 void ADPlayableCharacter::SetDialogPrompt()
 {
@@ -216,6 +234,7 @@ void ADPlayableCharacter::StartDialog()
     if (PlayerController != NULL)
     {
         PlayerController->ShowMouse();
+        PlayerController->SetInputMode(FInputModeUIOnly());
     }
 }
 
@@ -228,6 +247,7 @@ void ADPlayableCharacter::EndDialog()
     if (PlayerController != NULL)
     {
         PlayerController->HideMouse();
+        PlayerController->SetInputMode(FInputModeGameOnly());
     }
 }
 
@@ -261,6 +281,8 @@ void ADPlayableCharacter::NextDialog(FName ChoiceName)
 
 void ADPlayableCharacter::NextDialogWithChoice(FDChoiceStruct Choice)
 {
+    OnDialogNext.Broadcast(Choice);
+
     // First check for triggers we can execute
     if (Choice.triggers.Num() > 0)
     {

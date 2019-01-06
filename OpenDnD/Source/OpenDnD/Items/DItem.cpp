@@ -30,6 +30,16 @@ void ADItem::LoadData()
     DData::LoadItem(FileName, &Item);
 }
 
+// Called to load any item data
+FDItemStruct ADItem::LoadItem(FName ItemFileName)
+{
+    FDItemStruct Item;
+
+    DData::LoadItem(ItemFileName, &Item);
+    
+    return Item;
+}
+
 // Get current dialog
 FDDialogStruct ADItem::GetCurrentDialog()
 {

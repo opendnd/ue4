@@ -5,12 +5,14 @@
 #include "CoreMinimal.h"
 #include "Persons/DPersonCharacter.h"
 #include "Dialogs/DDialogStruct.h"
+#include "Items/DItemStruct.h"
 
 #include "DPlayableCharacter.generated.h"
 
 // Add delegates
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FDialogStartDelegate);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FDialogEndDelegate);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FDialogNextDelegate, FDChoiceStruct, Choice);
 
 /**
  * 
@@ -78,12 +80,22 @@ public:
     /** Returns FollowCamera subobject **/
     FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
     
+    // Items
+    UFUNCTION(BlueprintCallable, Category = "Item")
+    void AddItem(FDLinkItemStruct Link);
+    
+    UFUNCTION(BlueprintCallable, Category = "Item")
+    void AddItems(TArray<FDLinkItemStruct> Items);
+    
     // Properties for the dialog
     UPROPERTY(BlueprintAssignable, Category = "Dialog")
     FDialogStartDelegate OnDialogStart;
     
     UPROPERTY(BlueprintAssignable, Category = "Dialog")
     FDialogEndDelegate OnDialogEnd;
+    
+    UPROPERTY(BlueprintAssignable, Category = "Dialog")
+    FDialogNextDelegate OnDialogNext;
     
     UPROPERTY(BlueprintReadWrite, Category = "Dialog")
     AActor* InteractingActor;

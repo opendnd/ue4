@@ -38,6 +38,10 @@ public:
     UFUNCTION(BlueprintCallable, Category = "Item")
     void LoadData();
     
+    // Load Item
+    UFUNCTION(BlueprintCallable, Category = "Item")
+    static FDItemStruct LoadItem(FName ItemFileName);
+    
     // Get current dialog
     UFUNCTION(BlueprintCallable, Category = "Item")
     FDDialogStruct GetCurrentDialog();

@@ -14,6 +14,9 @@ class OPENDND_API ADPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 public:
+    UFUNCTION(BlueprintCallable, Category = "UI")
     void ShowMouse();
+    
+    UFUNCTION(BlueprintCallable, Category = "UI")
     void HideMouse();
 };
