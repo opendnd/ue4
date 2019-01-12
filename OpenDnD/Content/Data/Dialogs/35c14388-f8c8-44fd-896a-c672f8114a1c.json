@@ -1,10 +1,10 @@
 {
-  "uuid": "d8e83f1c-dac6-4c13-890a-0209fad22f8a",
-  "name": "Chest Item Dialog",
+  "uuid": "35c14388-f8c8-44fd-896a-c672f8114a1c",
+  "name": "Door Item Dialog",
   "currentResponse": 0,
   "responses": [
     {
-      "text": "You see a chest, what do you do?",
+      "text": "You see a door, what do you do?",
       "prompt": 0
     }
   ],
@@ -12,9 +12,9 @@
     {
       "choices": [
         {
-          "text": "[ Retrieve Items ]",
+          "text": "[ Try to open it ]",
           "triggers": [
-            "GetItems"
+            "OpenDoor"
           ]
         },{
           "text": "[ Walk Away ]"

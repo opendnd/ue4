@@ -1,0 +1,11 @@
+{
+  "uuid": "c5f4d984-2f9c-4cbe-bfa5-1cab7a31eebb",
+  "name": "Door",
+  "currentDialog": 0,
+  "dialogs": [
+    {
+      "uuid": "35c14388-f8c8-44fd-896a-c672f8114a1c",
+      "name": "Door Item Dialog"
+    }
+  ]
+}

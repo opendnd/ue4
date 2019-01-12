@@ -6,13 +6,26 @@
     {
       "text": "What do you want?",
       "prompt": 0
+    },{
+      "text": "Woah... that's deep.",
+      "prompt": 1
     }
   ],
   "prompts": [
     {
+      "timer": 5,
       "choices": [
         {
+          "text": "What do YOU want?",
+          "response": 1
+        },{
           "text": "[ Leave ]"
+        }
+      ]
+    },{
+      "choices": [
+        {
+          "text": "Yea it is."
         }
       ]
     }
